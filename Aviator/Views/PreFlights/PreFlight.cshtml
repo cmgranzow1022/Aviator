@@ -1,0 +1,148 @@
+﻿@model Aviator.Models.PreFlight
+@{
+    ViewBag.Title = "PreFlight";
+}
+
+<h2>Pre-Flight</h2>
+
+@using (Html.BeginForm("PreFlight", "PreFlights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+    @Html.AntiForgeryToken()
+
+
+    <h4>Complete before take off.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartingEngineHours, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StartingEngineHours, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartingHobbsHours, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StartingHobbsHours, new { @class = "form-control" })
+        </div>
+    </div>
+
+    List<SelectListItem> preListItems = new List<SelectListItem>();
+    preListItems.Add(new SelectListItem
+    {
+        Text = "6.0",
+        Value = "6.0"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "6.5",
+        Value = "6.5"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "7.0",
+        Value = "7.0"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "7.5",
+        Value = "7.5"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "8.0",
+        Value = "8.0"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "8.5",
+        Value = "8.5"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "9.0",
+        Value = "9.0"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "9.5",
+        Value = "9.5"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "10.0",
+        Value = "10.0"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "10.5",
+        Value = "10.5"
+    });
+    preListItems.Add(new SelectListItem
+    {
+        Text = "11.0",
+        Value = "11.0"
+    });
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartingOilLevel, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.StartingOilLevel, preListItems, "--------------Select oil level--------------", new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    List<SelectListItem> addingOilList = new List<SelectListItem>();
+    addingOilList.Add(new SelectListItem
+    {
+        Text = "0.5",
+        Value = "0.5"
+    });
+    addingOilList.Add(new SelectListItem
+    {
+        Text = "1.0",
+        Value = "1.0"
+    });
+    addingOilList.Add(new SelectListItem
+    {
+        Text = "1.5",
+        Value = "1.5"
+    });
+    addingOilList.Add(new SelectListItem
+    {
+        Text = "2.0",
+        Value = "2.0"
+    });
+    <div class="form-group">
+        @Html.LabelFor(m => m.AmountOilAdded, new { @class = "col-md-2 control-label"})
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.StartingOilLevel, addingOilList, "------Select amount added--------", new { @class = "form-control" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.MaintenanceFlight, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.MaintenanceFlight, true,  new { @Id = "Yes" })
+            <label for="Yes">Yes</label>
+            @Html.RadioButtonFor(m => m.MaintenanceFlight, false, new { @Id = "No" })
+            <label for="Id">No</label>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Complete" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,96 @@
+﻿@model Aviator.Models.PostFlight
+@{
+    ViewBag.Title = "PostFlight";
+}
+
+<h2>Post-Flight</h2>
+
+@using (Html.BeginForm("PostFlight", "PostFlights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+    @Html.AntiForgeryToken()
+    <h4>Complete after landing.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndingEngineHours, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EndingEngineHours, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndingHobbsHours, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EndingHobbsHours, new { @class = "form-control" })
+        </div>
+    </div>
+
+    @*List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "0.5",
+        Value = "0.5"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "1.0",
+        Value = "1.0"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "1.5",
+        Value = "1.5"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "2.0",
+        Value = "2.0"
+    });
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartingOilLevel, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.OilAdded, listItems, "--------Number of quarts added---------", new { @class = "form-control" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Squawks, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Squawks, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SplitTime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.SplitTime, "No")
+            @Html.RadioButtonFor(m => m.SplitTime, "Yes")
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SplitTimePilotId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SplitTimePilotId, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

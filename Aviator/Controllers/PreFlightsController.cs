@@ -14,10 +14,23 @@ namespace Aviator.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult PreFlight()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PreFlight([Bind(Include = "PreFlightId,FlightIdentification,StartingEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
+        {
+            db.PreFlights.Add(preFlight);
+            db.SaveChanges();
+            return View();
+        }
         // GET: PreFlights
         public ActionResult Index()
         {
-            var preFlights = db.PreFlights.Include(p => p.FlightId);
+            var preFlights = db.PreFlights.Include(p => p.FlightIdentification);
             return View(preFlights.ToList());
         }
 
@@ -48,7 +61,7 @@ namespace Aviator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PreFlightId,Flight,StartngEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
+        public ActionResult Create([Bind(Include = "PreFlightId,Flight,StartingEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +70,7 @@ namespace Aviator.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.FlightIdentification);
             return View(preFlight);
         }
 
@@ -73,7 +86,7 @@ namespace Aviator.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.FlightIdentification);
             return View(preFlight);
         }
 
@@ -82,7 +95,7 @@ namespace Aviator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PreFlightId,Flight,StartngEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
+        public ActionResult Edit([Bind(Include = "PreFlightId,Flight,StartingEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +103,7 @@ namespace Aviator.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", preFlight.FlightIdentification);
             return View(preFlight);
         }
 

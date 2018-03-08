@@ -14,6 +14,12 @@ namespace Aviator.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult PostFlight()
+        {
+            return View();
+        }
+
+
         // GET: PostFlights
         public ActionResult Index()
         {

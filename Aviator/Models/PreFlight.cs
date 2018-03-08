@@ -13,13 +13,19 @@ namespace Aviator.Models
         public int PreFlightId { get; set; }
 
         [ForeignKey("FlightId")]
-        public int Flight { get; set; }
+        public int? FlightIdentification { get; set; }
         public virtual Flight FlightId { get; set; }
 
-        public double StartngEngineHours { get; set; }
+
+        [Display(Name = "Starting Engine Hours")]
+        public double StartingEngineHours { get; set; }
+        [Display(Name = "Starting Total Hours")]
         public double StartingHobbsHours { get; set; }
+        [Display(Name = "Oil Level")]
         public double StartingOilLevel { get; set; }
+        [Display(Name = "Oil Added")]
         public double AmountOilAdded { get; set; }
+        [Display(Name = "Maintenance Flight")]
         public bool MaintenanceFlight { get; set; }
     }
 }

@@ -219,6 +219,30 @@
     <Compile Include="Migrations\201803081623564_update FK name.Designer.cs">
       <DependentUpon>201803081623564_update FK name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803081708431_update.cs" />
+    <Compile Include="Migrations\201803081708431_update.Designer.cs">
+      <DependentUpon>201803081708431_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803081735285_Spellingupdate.cs" />
+    <Compile Include="Migrations\201803081735285_Spellingupdate.Designer.cs">
+      <DependentUpon>201803081735285_Spellingupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803082036354_addedSplitTimePilotId.cs" />
+    <Compile Include="Migrations\201803082036354_addedSplitTimePilotId.Designer.cs">
+      <DependentUpon>201803082036354_addedSplitTimePilotId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803082111543_update2.cs" />
+    <Compile Include="Migrations\201803082111543_update2.Designer.cs">
+      <DependentUpon>201803082111543_update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803082121409_update3.cs" />
+    <Compile Include="Migrations\201803082121409_update3.Designer.cs">
+      <DependentUpon>201803082121409_update3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803082131090_update4.cs" />
+    <Compile Include="Migrations\201803082131090_update4.Designer.cs">
+      <DependentUpon>201803082131090_update4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -233,6 +257,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Aviator-20180308090151.mdf" />
+    <Content Include="App_Data\aspnet-Aviator-20180308090151_log.ldf">
+      <DependentUpon>aspnet-Aviator-20180308090151.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -322,10 +350,10 @@
     <Content Include="Views\PreFlights\Details.cshtml" />
     <Content Include="Views\PreFlights\Edit.cshtml" />
     <Content Include="Views\PreFlights\Index.cshtml" />
+    <Content Include="Views\PreFlights\PreFlight.cshtml" />
+    <Content Include="Views\PostFlights\PostFlight.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -343,6 +371,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803081623564_update FK name.resx">
       <DependentUpon>201803081623564_update FK name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803081708431_update.resx">
+      <DependentUpon>201803081708431_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803081735285_Spellingupdate.resx">
+      <DependentUpon>201803081735285_Spellingupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803082036354_addedSplitTimePilotId.resx">
+      <DependentUpon>201803082036354_addedSplitTimePilotId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803082111543_update2.resx">
+      <DependentUpon>201803082111543_update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803082121409_update3.resx">
+      <DependentUpon>201803082121409_update3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803082131090_update4.resx">
+      <DependentUpon>201803082131090_update4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
