@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Aviator.Models.PreFlight>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightId.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartngEngineHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingHobbsHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingOilLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountOilAdded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaintenanceFlight)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightId.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartngEngineHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartingHobbsHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartingOilLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountOilAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaintenanceFlight)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PreFlightId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PreFlightId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PreFlightId })
+        </td>
+    </tr>
+}
+
+</table>

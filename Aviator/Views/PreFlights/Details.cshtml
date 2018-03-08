@@ -1,0 +1,66 @@
+﻿@model Aviator.Models.PreFlight
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PreFlight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightId.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightId.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartngEngineHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartngEngineHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartingHobbsHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartingHobbsHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartingOilLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartingOilLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountOilAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountOilAdded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaintenanceFlight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaintenanceFlight)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PreFlightId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -29,5 +29,17 @@ namespace Aviator.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Member> Members { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Flight> Flights { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Plane> Planes { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Billing> Billings { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.PostFlight> PostFlights { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.PreFlight> PreFlights { get; set; }
     }
 }

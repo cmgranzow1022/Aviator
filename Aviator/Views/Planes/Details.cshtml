@@ -1,0 +1,42 @@
+﻿@model Aviator.Models.Plane
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plane</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TailNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TailNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalEngineHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalEngineHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalHobbsHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalHobbsHours)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaneId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

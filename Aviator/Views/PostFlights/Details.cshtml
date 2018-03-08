@@ -1,0 +1,58 @@
+﻿@model Aviator.Models.PostFlight
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PostFlight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightId.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightId.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndingEngineHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndingEngineHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndingHobbsHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndingHobbsHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Squawks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Squawks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SplitTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SplitTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PostFlightId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

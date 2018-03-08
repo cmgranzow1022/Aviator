@@ -24,6 +24,17 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("Pilot") || User.IsInRole("MTech"))
+                    {
+                        <li>@Html.ActionLink("Club Calendar", "Calendar", "Calendar")</li>
+                    }
+                    @if (User.IsInRole("Pilot"))
+                    {
+                        < li > @Html.ActionLink("PreFlight", "PreFlight", "PreFlight") </ li >
+                        < li > @Html.ActionLink("PostFlight", "PostFlight", "PostFlight") </ li >
+                    }
+
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

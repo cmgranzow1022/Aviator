@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Aviator.Models.PostFlight>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightId.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndingEngineHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndingHobbsHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Squawks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SplitTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightId.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndingEngineHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndingHobbsHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Squawks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SplitTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PostFlightId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PostFlightId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PostFlightId })
+        </td>
+    </tr>
+}
+
+</table>
