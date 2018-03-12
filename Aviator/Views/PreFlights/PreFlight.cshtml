@@ -14,6 +14,8 @@
     <h4>Complete before take off.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.FlightIdentification)
+    @Html.HiddenFor(m => m.PreFlightId)
 
     <div class="form-group">
         @Html.LabelFor(m => m.StartingEngineHours, new { @class = "col-md-2 control-label" })
@@ -119,7 +121,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.AmountOilAdded, new { @class = "col-md-2 control-label"})
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.StartingOilLevel, addingOilList, "------Select amount added--------", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.AmountOilAdded, addingOilList, "------Select amount added--------", new { @class = "form-control" })
         </div>
     </div>
 

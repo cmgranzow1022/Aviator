@@ -16,8 +16,11 @@ namespace Aviator.Controllers
 
         public ActionResult PreFlight()
         {
-
-            return View();
+            PostFlightViewModel fillPostValues = new PostFlightViewModel();
+            PreFlight newFlight = new PreFlight();
+            newFlight.StartingEngineHours = fillPostValues.postModel.EndingEngineHours;
+            newFlight.StartingEngineHours = fillPostValues.postModel.EndingHobbsHours;
+            return View(newFlight);
         }
 
         [HttpPost]

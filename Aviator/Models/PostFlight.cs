@@ -13,7 +13,7 @@ namespace Aviator.Models
         public int PostFlightId { get; set; }
 
         [ForeignKey("FlightId")]
-        public int Flight { get; set; }
+        public int FlightIdentification { get; set; }
         public virtual Flight FlightId { get; set; }
 
         [Display(Name = "Ending Engine Hours")]
@@ -26,7 +26,7 @@ namespace Aviator.Models
 
         [ForeignKey("MemberId")]
         [Display(Name = "Pilot Splitting Time With")]
-        public int SplitTimePilotId { get; set; }
+        public int? SplitTimePilotId { get; set; }
         public virtual Member MemberId { get; set; }
     }
 }

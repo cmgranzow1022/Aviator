@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Aviator.Models.Calendar>
+
+@{
+    ViewBag.Title = "Index";
+}
+<center>
+    <h2>Club Calendar</h2>
+</center>
+<div class="row">
+    @*<div class="col-md-1"></div>*@
+    <div class="col-md-12" >
+        <div id="calendar"></div>
+    </div>
+       
+</div>
+
+@section scripts{
+ 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#calendar').fullCalendar({
+                theme: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+
+                defaultView: 'agendaWeek',
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 30,
+                events: "/calendars/getevents/"
+            });
+        });
+    </script>
+
+
+
+    }

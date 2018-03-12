@@ -23,6 +23,7 @@ namespace Aviator.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
@@ -41,5 +42,7 @@ namespace Aviator.Models
         public System.Data.Entity.DbSet<Aviator.Models.PostFlight> PostFlights { get; set; }
 
         public System.Data.Entity.DbSet<Aviator.Models.PreFlight> PreFlights { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Calendar> Calendars { get; set; }
     }
 }

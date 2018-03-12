@@ -4,6 +4,7 @@ namespace Aviator.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -29,6 +30,9 @@ namespace Aviator.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
+
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             if (!roleManager.RoleExists("Admin"))

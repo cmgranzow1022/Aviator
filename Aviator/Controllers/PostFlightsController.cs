@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Aviator.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Aviator.Controllers
 {
@@ -16,6 +17,43 @@ namespace Aviator.Controllers
 
         public ActionResult PostFlight()
         {
+            PostFlightViewModel postViewModel = new PostFlightViewModel();
+            Member LoggedInMember;
+            List<Member> AllMembers = db.Members.ToList();
+            List<Member> ListOfPilots = new List<Member>();
+            string currentUserId = User.Identity.GetUserId();
+            LoggedInMember = (from x in AllMembers where x.UserId == currentUserId select x).FirstOrDefault();
+            AllMembers.Remove(LoggedInMember);
+
+            for (int i = 0; i < AllMembers.Count; i++)
+            {
+                if (AllMembers[i].MemberRole == "Pilot")
+                {
+                      ListOfPilots.Add(AllMembers[i]);
+                }
+            }
+            for(int i = 0; i < ListOfPilots.Count; i++)
+            {
+                if(ListOfPilots[i].MemberId != LoggedInMember.MemberId)
+                {
+                    SelectListItem item = new SelectListItem
+                    {
+                        Text = AllMembers[i].FullName,
+                        Value = AllMembers[i].MemberId.ToString()
+                    };
+                    postViewModel.AvailablePilots.Add(item);
+               }
+            }
+        
+            return View(postViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult PostFlight([Bind(Include = "PostFlightId,FlightIdentification,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime,SplitTimePilotId")] PostFlight postFlight)
+        {
+
+            db.PostFlights.Add(postFlight);
+            db.SaveChanges();
             return View();
         }
 
@@ -23,6 +61,7 @@ namespace Aviator.Controllers
         // GET: PostFlights
         public ActionResult Index()
         {
+   
             var postFlights = db.PostFlights.Include(p => p.FlightId);
             return View(postFlights.ToList());
         }
@@ -54,7 +93,7 @@ namespace Aviator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostFlightId,Flight,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime")] PostFlight postFlight)
+        public ActionResult Create([Bind(Include = "PostFlightId,FlightIdentification,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime,SplitTimePilotId")] PostFlight postFlight)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +102,7 @@ namespace Aviator.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.FlightIdentification);
             return View(postFlight);
         }
 
@@ -79,7 +118,7 @@ namespace Aviator.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.FlightIdentification);
             return View(postFlight);
         }
 
@@ -88,7 +127,7 @@ namespace Aviator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostFlightId,Flight,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime")] PostFlight postFlight)
+        public ActionResult Edit([Bind(Include = "PostFlightId,FlightIdentification,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime,SplitTimePilotId")] PostFlight postFlight)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +135,7 @@ namespace Aviator.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.Flight);
+            ViewBag.Flight = new SelectList(db.Flights, "FlightId", "Destination", postFlight.FlightIdentification);
             return View(postFlight);
         }
 
