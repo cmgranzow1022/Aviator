@@ -16,19 +16,26 @@ namespace Aviator.Controllers
 
         public ActionResult PreFlight()
         {
-            PostFlightViewModel fillPostValues = new PostFlightViewModel();
+            List<Flight> ListOfFlights = db.Flights.ToList();
+            List<PostFlight> LastFlightValues = db.PostFlights.ToList();
+            PostFlight fillPostValues = new PostFlight();
             PreFlight newFlight = new PreFlight();
-            newFlight.StartingEngineHours = fillPostValues.postModel.EndingEngineHours;
-            newFlight.StartingEngineHours = fillPostValues.postModel.EndingHobbsHours;
+            var FlightNumber = ListOfFlights[ListOfFlights.Count - 1].FlightId;
+            var LastEntryEngineHours = LastFlightValues[LastFlightValues.Count - 1].EndingEngineHours;
+                //fillPostValues.EndingEngineHours;
+            var LastEntryHobbsHours = fillPostValues.EndingHobbsHours;
+            newFlight.FlightIdentification = FlightNumber;
+            newFlight.StartingEngineHours = LastEntryEngineHours;
+            newFlight.StartingEngineHours = LastEntryHobbsHours;
             return View(newFlight);
-        }
+        } 
 
         [HttpPost]
         public ActionResult PreFlight([Bind(Include = "PreFlightId,FlightIdentification,StartingEngineHours,StartingHobbsHours,StartingOilLevel,AmountOilAdded,MaintenanceFlight")] PreFlight preFlight)
         {
             db.PreFlights.Add(preFlight);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index", "Home");
         }
         // GET: PreFlights
         public ActionResult Index()

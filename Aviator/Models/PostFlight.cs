@@ -24,8 +24,8 @@ namespace Aviator.Models
         [Display(Name = "Split Time")]
         public bool SplitTime { get; set; }
 
-        [ForeignKey("MemberId")]
         [Display(Name = "Pilot Splitting Time With")]
+        [ForeignKey("MemberId")]
         public int? SplitTimePilotId { get; set; }
         public virtual Member MemberId { get; set; }
     }

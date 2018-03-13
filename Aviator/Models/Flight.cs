@@ -12,10 +12,9 @@ namespace Aviator.Models
         [Key]
         public int FlightId { get; set; }
         
-        [ForeignKey("PlaneId")]
-        public int AircraftId { get; set; }
-        public virtual Plane PlaneId { get; set; }
 
+        [Display(Name = "Aircraft Tail Number")]
+        public string AircraftNumber { get; set; }
         public string Destination{ get; set; }
         public string Date { get; set; }
     }

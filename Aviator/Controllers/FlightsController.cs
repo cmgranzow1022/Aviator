@@ -14,10 +14,25 @@ namespace Aviator.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult PreFlight()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult PreFlight([Bind(Include = "FlightId,AirplaneNumber,Date,Destination")] Flight flight )
+        {
+
+            db.Flights.Add(flight);   
+            db.SaveChanges();
+            return RedirectToAction("PreFlight", "PreFlights");
+        }
+
+
         // GET: Flights
         public ActionResult Index()
         {
-            var flights = db.Flights.Include(f => f.PlaneId);
+            var flights = db.Flights.Include(f => f.AircraftNumber);
             return View(flights.ToList());
         }
 
@@ -48,7 +63,7 @@ namespace Aviator.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FlightId,AircraftId,Destination,Date")] Flight flight)
+        public ActionResult Create([Bind(Include = "FlightId,AircraftNumber,Destination,Date")] Flight flight)
         {
             if (ModelState.IsValid)
             {
@@ -57,25 +72,25 @@ namespace Aviator.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftId);
+            ViewBag.AircraftNumber = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftNumber);
             return View(flight);
         }
 
         // GET: Flights/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Flight flight = db.Flights.Find(id);
-            if (flight == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftId);
-            return View(flight);
-        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Flight flight = db.Flights.Find(id);
+        //    if (flight == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftNumber);
+        //    return View(flight);
+        //}
 
         // POST: Flights/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -90,7 +105,7 @@ namespace Aviator.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftId);
+            ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftNumber);
             return View(flight);
         }
 
