@@ -16,14 +16,14 @@ namespace Aviator.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
-        public JsonResult GetEvents()
-        {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                var events = db.Calendars.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-        }
+        //public JsonResult GetEvents()
+        //{
+        //    using (ApplicationDbContext db = new ApplicationDbContext())
+        //    {
+        //        var events = db.Calendars.ToList();
+        //        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        //    }
+        //}
 
 
         // GET: Calendars
