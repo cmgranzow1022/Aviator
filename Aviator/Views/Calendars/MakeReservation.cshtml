@@ -1,0 +1,90 @@
+﻿@model Aviator.Models.Calendar
+@{
+    ViewBag.Title = "MakeReservation";
+}
+
+<h2>Make Reservation</h2>
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.EventId)
+    @Html.HiddenFor(m => m.MemberMakingReservation)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EventDescription, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EventDescription, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control" , @id= "date-picker" })
+            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger"})
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.StartTime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndDate, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", @id="date-picker2"})
+            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EndTime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.EndTime, new { @class = "form-control" })
+        </div>
+    </div>
+    <br />
+    <br />
+
+
+    @*<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <p class="btn btn-default"> @Html.ActionLink("Add To Calendar", "MakeReservation", "Calendars")</p>
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Add To Calendar" class="btn btn-default" />
+        </div>
+    </div>
+
+
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="http://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+<script type='text/javascript'>
+
+   $('#date-picker').datepicker();
+   $('#date-picker2').datepicker();
+
+</script>

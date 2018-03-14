@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Aviator.Models;
 using DHTMLX.Scheduler;
+using Microsoft.AspNet.Identity;
 
 namespace Aviator.Controllers
 {
@@ -16,15 +17,30 @@ namespace Aviator.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
 
-        //public JsonResult GetEvents()
-        //{
-        //    using (ApplicationDbContext db = new ApplicationDbContext())
-        //    {
-        //        var events = db.Calendars.ToList();
-        //        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        //    }
-        //}
+        public JsonResult GetEvents()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var events = db.Calendars.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
 
+        public ActionResult MakeReservation()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeReservation([Bind(Include = "EventId,Description,StartDate,StartTime,EndDate,EndTime")] Calendar newEvent)
+        {
+            List<Member> AllMembers = db.Members.ToList();
+            string currentUserId = User.Identity.GetUserId();
+            int currentMemberId = (from x in AllMembers where x.UserId == currentUserId select x.MemberId).FirstOrDefault();
+            newEvent.MemberMakingReservation = currentMemberId;
+            db.Calendars.Add(newEvent);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Calendars");
+        }
 
         // GET: Calendars
         public ActionResult Index()

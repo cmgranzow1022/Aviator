@@ -49,18 +49,21 @@ namespace Aviator.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostFlight([Bind(Include = "PostFlightId,FlightIdentification,EndingEngineHours,EndingHobbsHours,Squawks,SplitTime,SplitTimePilotId")] PostFlight postFlight)
+        public ActionResult PostFlight(PostFlightViewModel model)
         {
+            PostFlight postFlight = new PostFlight();
             List<Flight> ListOfFlights = db.Flights.ToList();
             var FlightNumber = ListOfFlights[ListOfFlights.Count - 1].FlightId;
             postFlight.FlightIdentification = FlightNumber;
-            postFlight.EndingEngineHours = postFlight.EndingEngineHours;
-            postFlight.EndingHobbsHours = postFlight.EndingHobbsHours;
-            postFlight.Squawks = postFlight.Squawks;
-            postFlight.SplitTimePilotId = postFlight.SplitTimePilotId;
+            postFlight.EndingEngineHours = model.postModel.EndingEngineHours;
+            postFlight.EndingHobbsHours = model.postModel.EndingHobbsHours;
+            postFlight.Squawks = model.postModel.Squawks;
+            postFlight.SplitTime = model.postModel.SplitTime;
+            postFlight.SplitTimePilotId = model.postModel.SplitTimePilotId;
+
             db.PostFlights.Add(postFlight);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
 

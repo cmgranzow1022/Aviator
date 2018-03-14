@@ -16,7 +16,10 @@ namespace Aviator.Controllers
 
         public ActionResult PreFlight()
         {
-            return View();
+            Flight newFlight = new Flight();
+            var today = DateTime.Now.ToString();
+            newFlight.Date = today;
+            return View(newFlight);
         }
 
         [HttpPost]

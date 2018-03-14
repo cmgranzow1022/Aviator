@@ -2,16 +2,13 @@
 
 <h2>Post-Flight</h2>
 
-@using (Html.BeginForm("PostFlight", "PostFlights", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm())
 {
 
     @Html.AntiForgeryToken()
     <h4>Complete after landing.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    @Html.HiddenFor(m => m.postModel.PostFlightId)
-    @Html.HiddenFor(m => m.postModel.FlightId)
-    @Html.HiddenFor(m => m.postModel.MemberId)
 
     <div class="form-group">
         @Html.LabelFor(m => m.postModel.EndingEngineHours, new { @class = "col-md-2 control-label" })
@@ -34,15 +31,7 @@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.postModel.SplitTime, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.RadioButtonFor(m => m.postModel.SplitTime, true, new { @Id = "Yes" })
-            <label for="Yes">Yes</label>
-            @Html.RadioButtonFor(m => m.postModel.SplitTime, false, new { @Id = "No" })
-            <label for="No">No</label>
-        </div>
-    </div>
+
 
     <div class="form-group">
         @Html.LabelFor(m => m.postModel.SplitTimePilotId, new { @class = "col-md-2 control-label" })

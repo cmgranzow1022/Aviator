@@ -16,17 +16,17 @@ namespace Aviator.Controllers
 
         public ActionResult PreFlight()
         {
+            
             List<Flight> ListOfFlights = db.Flights.ToList();
             List<PostFlight> LastFlightValues = db.PostFlights.ToList();
-            PostFlight fillPostValues = new PostFlight();
+    
             PreFlight newFlight = new PreFlight();
             var FlightNumber = ListOfFlights[ListOfFlights.Count - 1].FlightId;
             var LastEntryEngineHours = LastFlightValues[LastFlightValues.Count - 1].EndingEngineHours;
-                //fillPostValues.EndingEngineHours;
-            var LastEntryHobbsHours = fillPostValues.EndingHobbsHours;
+            var LastEntryHobbsHours = LastFlightValues[LastFlightValues.Count - 1].EndingHobbsHours;
             newFlight.FlightIdentification = FlightNumber;
             newFlight.StartingEngineHours = LastEntryEngineHours;
-            newFlight.StartingEngineHours = LastEntryHobbsHours;
+            newFlight.StartingHobbsHours = LastEntryHobbsHours;
             return View(newFlight);
         } 
 

@@ -288,6 +288,14 @@
     <Compile Include="Migrations\201803131832596_editedPlane2.Designer.cs">
       <DependentUpon>201803131832596_editedPlane2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803141553376_editedCalenderModel.cs" />
+    <Compile Include="Migrations\201803141553376_editedCalenderModel.Designer.cs">
+      <DependentUpon>201803141553376_editedCalenderModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803141611166_editedCalenderModel1.cs" />
+    <Compile Include="Migrations\201803141611166_editedCalenderModel1.Designer.cs">
+      <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
@@ -799,6 +807,7 @@
     <Content Include="Views\Calendars\Index.cshtml" />
     <Content Include="Views\Calendars\IndexTWO.cshtml" />
     <Content Include="Views\Flights\PreFlight.cshtml" />
+    <Content Include="Views\Calendars\MakeReservation.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -865,6 +874,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803131832596_editedPlane2.resx">
       <DependentUpon>201803131832596_editedPlane2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803141553376_editedCalenderModel.resx">
+      <DependentUpon>201803141553376_editedCalenderModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803141611166_editedCalenderModel1.resx">
+      <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

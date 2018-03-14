@@ -14,6 +14,7 @@ namespace Aviator.Models
         public PostFlightViewModel()
         {
             AvailablePilots = new List<SelectListItem>();
+            postModel = new PostFlight();
         }
 
     }

@@ -3,9 +3,17 @@
 @{
     ViewBag.Title = "Index";
 }
+<br />
+
 <center>
-    <h2>Club Calendar</h2>
+    <div class="form-group">
+   
+            <p class="btn btn-default"> @Html.ActionLink("Add Reservation", "MakeReservation", "Calendars")</p>
+     
+    </div>
 </center>
+<br />
+
 <div class="row">
     @*<div class="col-md-1"></div>*@
     <div class="col-md-12" >
@@ -31,11 +39,13 @@
                 allDaySlot: false,
                 selectable: true,
                 slotMinutes: 30,
-                events: "/calendars/getevents/"
+                events: "/calendars/GetEvents/"
             });
         });
     </script>
-
-
-
     }
+
+
+    
+
+    
