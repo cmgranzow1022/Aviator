@@ -4,14 +4,24 @@
     ViewBag.Title = "Index";
 }
 <br />
-
-<center>
-    <div class="form-group">
-   
+@if (User.IsInRole("Pilot"))
+{
+    <center>
+        <div class="form-group">
             <p class="btn btn-default"> @Html.ActionLink("Add Reservation", "MakeReservation", "Calendars")</p>
-     
-    </div>
-</center>
+        </div>
+    </center>
+}
+
+@if (User.IsInRole("MTech"))
+{
+    <center>
+        <div class="form-group">
+            <p class="btn btn-default"> @Html.ActionLink("Add Maintenance", "MakeReservation", "Calendars")</p>
+        </div>
+    </center>
+}
+
 <br />
 
 <div class="row">
@@ -19,7 +29,6 @@
     <div class="col-md-12" >
         <div id="calendar"></div>
     </div>
-       
 </div>
 
 @section scripts{
@@ -39,10 +48,50 @@
                 allDaySlot: false,
                 selectable: true,
                 slotMinutes: 30,
-                events: "/calendars/GetEvents/"
+                events: "/calendars/getevents/"
+
             });
         });
     </script>
+
+    @*<script type="text/javascript">
+        $(function () {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data: "{}",
+                url: "/calendars/GetEvents",
+                dataType: "json",
+                success: function (data) {
+                    alert(data);
+                    $('#calendar_ph').fullCalendar({
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'month,agendaWeek,agendaDay'
+                        },
+
+                        defaultView: 'month',
+                        editable: true,
+                        height: 650,
+
+                    });
+
+                },
+                error: function () {
+
+                }
+            });
+
+
+        })
+    .done(function (data) {
+
+
+    });
+    </script>*@
+
+
     }
 
 

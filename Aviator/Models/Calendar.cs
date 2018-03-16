@@ -15,6 +15,7 @@ namespace Aviator.Models
         [ForeignKey ("MemberId")]
         public int MemberMakingReservation { get; set; }
         public virtual Member MemberId { get; set; }
+
         [Display(Name = "Event Description")]
         public string EventDescription { get; set;}
         [Display(Name ="Start Date")]

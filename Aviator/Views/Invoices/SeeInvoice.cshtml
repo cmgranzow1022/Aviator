@@ -1,0 +1,67 @@
+﻿@model Aviator.Models.Invoice
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<h2>Monthly Invoice</h2>
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.HourlyFlightRate, new { @class = "col-md-3 control-label" })
+                <div class="col-md-7">
+                    @Html.DisplayFor(m => m.HourlyFlightRate, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+            <br />
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.HoursFlown, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-8">
+                        @Html.DisplayFor(m => m.HoursFlown, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HoursBilled, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-7">
+                            <strong>
+                            @Html.DisplayFor(m => m.HoursBilled, new { @class = "form-control" })
+                                </strong>
+                        </div>
+                    </div>
+                </div>
+                    <br />
+                    <div class="row">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.MonthlyDues, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-8">
+                                @Html.DisplayFor(m => m.MonthlyDues, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                        <br />
+                        <div class="row">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TotalAmountOwed, new { @class = "col-md-3 control-label" })
+                                <div class="col-md-9">
+                                    <strong>
+                                    @Html.DisplayFor(m => m.TotalAmountOwed, new { @class = "form-control" })
+                                        </strong>
+                                </div>
+                            </div>
+                        </div>
+                            <br />
+                            <br />
+                            <br />
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Pay Now</a></p>
+                            }

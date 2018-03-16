@@ -19,11 +19,11 @@ namespace Aviator.Controllers
 
         public JsonResult GetEvents()
         {
-            using (ApplicationDbContext db = new ApplicationDbContext())
-            {
-                var events = db.Calendars.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
+             
+            var events = db.Calendars.ToList();
+
+
+            return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         public ActionResult MakeReservation()

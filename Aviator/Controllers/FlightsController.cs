@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Aviator.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Aviator.Controllers
 {
@@ -23,9 +24,10 @@ namespace Aviator.Controllers
         }
 
         [HttpPost]
-        public ActionResult PreFlight([Bind(Include = "FlightId,AirplaneNumber,Date,Destination")] Flight flight )
+        public ActionResult PreFlight([Bind(Include = "FlightId,AircraftNumber,Date,Destination,UserId")] Flight flight )
         {
-
+            var MemberFlying = User.Identity.GetUserId();
+            flight.UserId = MemberFlying;
             db.Flights.Add(flight);   
             db.SaveChanges();
             return RedirectToAction("PreFlight", "PreFlights");

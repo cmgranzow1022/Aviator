@@ -17,5 +17,10 @@ namespace Aviator.Models
         public string AircraftNumber { get; set; }
         public string Destination{ get; set; }
         public string Date { get; set; }
+
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser User { get; set; }
+
     }
 }

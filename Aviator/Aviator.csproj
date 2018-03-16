@@ -81,8 +81,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stripe.net, Version=13.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.13.5.0\lib\net45\Stripe.net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -144,9 +153,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -204,6 +210,7 @@
     <Compile Include="Controllers\CalendarsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\PlanesController.cs" />
@@ -296,18 +303,36 @@
     <Compile Include="Migrations\201803141611166_editedCalenderModel1.Designer.cs">
       <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803151838062_addedinvoiceModel.cs" />
+    <Compile Include="Migrations\201803151838062_addedinvoiceModel.Designer.cs">
+      <DependentUpon>201803151838062_addedinvoiceModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803151851262_addedinvoiceModel1.cs" />
+    <Compile Include="Migrations\201803151851262_addedinvoiceModel1.Designer.cs">
+      <DependentUpon>201803151851262_addedinvoiceModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803151930279_addedinvoiceModel2.cs" />
+    <Compile Include="Migrations\201803151930279_addedinvoiceModel2.Designer.cs">
+      <DependentUpon>201803151930279_addedinvoiceModel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803161340452_updatedFlight11.cs" />
+    <Compile Include="Migrations\201803161340452_updatedFlight11.Designer.cs">
+      <DependentUpon>201803161340452_updatedFlight11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Billing.cs" />
     <Compile Include="Models\Calendar.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\PostFlight.cs" />
     <Compile Include="Models\PostFlightViewModel.cs" />
     <Compile Include="Models\PreFlight.cs" />
+    <Compile Include="Models\TotalHoursViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -323,6 +348,7 @@
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
+    <Content Include="Content\jquery.timepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -632,6 +658,8 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.timepicker.js" />
+    <Content Include="Scripts\jquery.timepicker.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -808,6 +836,12 @@
     <Content Include="Views\Calendars\IndexTWO.cshtml" />
     <Content Include="Views\Flights\PreFlight.cshtml" />
     <Content Include="Views\Calendars\MakeReservation.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Invoices\SeeInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -880,6 +914,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803141611166_editedCalenderModel1.resx">
       <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803151838062_addedinvoiceModel.resx">
+      <DependentUpon>201803151838062_addedinvoiceModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803151851262_addedinvoiceModel1.resx">
+      <DependentUpon>201803151851262_addedinvoiceModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803151930279_addedinvoiceModel2.resx">
+      <DependentUpon>201803151930279_addedinvoiceModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803161340452_updatedFlight11.resx">
+      <DependentUpon>201803161340452_updatedFlight11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -30,6 +30,7 @@ namespace Aviator
 
                 "~/Content/themes/jquery.ui.all.css",
                 "~/Content/fullcalendar.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/fullcalendarjs").Include(
                 "~/Scripts/jquery-ui-{version}.min.js",
                 "~/Scripts/moment.min.js",

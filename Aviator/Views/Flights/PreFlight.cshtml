@@ -15,6 +15,7 @@
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     @Html.HiddenFor(m => m.FlightId)
+    @Html.HiddenFor(m => m.UserId)
 
     <div class="form-group">
         @Html.LabelFor(m => m.AircraftNumber, new { @class = "col-md-2 control-label" })

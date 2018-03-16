@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Aviator.Models.Invoice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberId.MemberRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoursBilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyDues)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberId.MemberRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoursBilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyDues)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InvoiceKey }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InvoiceKey }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InvoiceKey })
+        </td>
+    </tr>
+}
+
+</table>

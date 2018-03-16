@@ -28,5 +28,6 @@ namespace Aviator.Models
         [ForeignKey("MemberId")]
         public int? SplitTimePilotId { get; set; }
         public virtual Member MemberId { get; set; }
+
     }
 }

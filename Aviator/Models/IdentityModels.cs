@@ -44,5 +44,7 @@ namespace Aviator.Models
         public System.Data.Entity.DbSet<Aviator.Models.PreFlight> PreFlights { get; set; }
 
         public System.Data.Entity.DbSet<Aviator.Models.Calendar> Calendars { get; set; }
+
+        public System.Data.Entity.DbSet<Aviator.Models.Invoice> Invoices { get; set; }
     }
 }

@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Aviator.Models;
 using Microsoft.AspNet.Identity;
-
 namespace Aviator.Controllers
 {
     public class PostFlightsController : Controller

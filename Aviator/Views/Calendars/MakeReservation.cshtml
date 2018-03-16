@@ -35,7 +35,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.StartTime, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control", @id= "time-picker" })
         </div>
     </div>
 
@@ -86,5 +86,6 @@
 
    $('#date-picker').datepicker();
    $('#date-picker2').datepicker();
+   $('#time-picker').timepicker();
 
 </script>
