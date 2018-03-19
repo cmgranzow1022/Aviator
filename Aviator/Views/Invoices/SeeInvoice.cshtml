@@ -63,5 +63,27 @@
                             <br />
                             <br />
                             <br />
-                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Pay Now</a></p>
-                            }
+                            @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Pay Now</a></p>*@
+
+var total = @Html.Raw(Json.Encode(Model.TotalAmountOwed));
+
+    
+ 
+
+
+
+    <form action="/Payment/Charge" method="POST">
+        <article>
+            <label>Amount: $@total</label>
+        </article>
+        <script src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="@ViewBag.StripePublishKey"
+                data-locale="auto"
+                data-description="Sample Charge"
+                data-amount="1500">
+        </script>
+    </form>
+
+
+}

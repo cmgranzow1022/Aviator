@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Aviator.Models.PlaneStatsViewModel>
+@{
+    ViewBag.Title = "PlaneStats";
+}
+
+<h2>N926G</h2>
+
+<h2>Details</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberModel.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightModel.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostModel.Squawks)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberModel.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightModel.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostModel.Squawks)
+                </td>
+                </tr>
+
+        }
+        </table>

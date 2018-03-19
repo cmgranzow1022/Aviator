@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DHTMLX.Scheduler;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,22 +11,19 @@ namespace Aviator.Models
     public class Calendar
     {
         [Key]
-        public int EventId { get; set; }
-        
-        [ForeignKey ("MemberId")]
-        public int MemberMakingReservation { get; set; }
-        public virtual Member MemberId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DHXJson(Alias = "id")]
+        public int Id { get; set; }
 
-        [Display(Name = "Event Description")]
-        public string EventDescription { get; set;}
-        [Display(Name ="Start Date")]
+        [DHXJson(Alias = "text")]
+        public string Description { get; set; }
+
+        [DHXJson(Alias = "start_date")]
         public DateTime StartDate { get; set; }
-        [Display(Name = "Start Time")]
-        public string StartTime { get; set; }
-        [Display(Name = "End Date/Time")]
+
+        [DHXJson(Alias = "end_date")]
         public DateTime EndDate { get; set; }
-        [Display(Name = "End Time")]
-        public string EndTime { get; set; }
-        public string color { get; set; }
+
+
     }
 }

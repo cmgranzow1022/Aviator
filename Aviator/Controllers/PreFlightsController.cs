@@ -22,8 +22,11 @@ namespace Aviator.Controllers
     
             PreFlight newFlight = new PreFlight();
             var FlightNumber = ListOfFlights[ListOfFlights.Count - 1].FlightId;
-            var LastEntryEngineHours = LastFlightValues[LastFlightValues.Count - 1].EndingEngineHours;
-            var LastEntryHobbsHours = LastFlightValues[LastFlightValues.Count - 1].EndingHobbsHours;
+
+            var LastEntryEngineHours = 200.0;
+            var LastEntryHobbsHours = 450.6;
+            //var LastEntryEngineHours = LastFlightValues[LastFlightValues.Count - 1].EndingEngineHours;
+            //var LastEntryHobbsHours = LastFlightValues[LastFlightValues.Count - 1].EndingHobbsHours;
             newFlight.FlightIdentification = FlightNumber;
             newFlight.StartingEngineHours = LastEntryEngineHours;
             newFlight.StartingHobbsHours = LastEntryHobbsHours;
@@ -40,7 +43,7 @@ namespace Aviator.Controllers
         // GET: PreFlights
         public ActionResult Index()
         {
-            var preFlights = db.PreFlights.Include(p => p.FlightIdentification);
+            var preFlights = db.PreFlights.Include(p => p.FlightId);
             return View(preFlights.ToList());
         }
 

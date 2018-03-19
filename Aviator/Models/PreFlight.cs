@@ -13,7 +13,7 @@ namespace Aviator.Models
         public int PreFlightId { get; set; }
 
         [ForeignKey("FlightId")]
-        public int? FlightIdentification { get; set; }
+        public int FlightIdentification { get; set; }
         public virtual Flight FlightId { get; set; }
 
 

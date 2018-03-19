@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Aviator.Models;
 using Stripe;
 using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Aviator.Controllers
 {
@@ -43,7 +45,31 @@ namespace Aviator.Controllers
             NewInvoice.HoursBilled = GrandTotal * NewInvoice.HourlyFlightRate;
             NewInvoice.MonthlyDues = 130.00;
             NewInvoice.TotalAmountOwed = NewInvoice.MonthlyDues + NewInvoice.HoursBilled;
+            var stripePublishKey = ConfigurationManager.AppSettings["PUBLICKEYHERE"];
+            ViewBag.StripePublishKey = stripePublishKey;
             return View(NewInvoice);
+        }
+
+        public ActionResult Charge(string stripeEmail, string stripeToken)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = 500,//charge in cents
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            return View();
         }
 
 

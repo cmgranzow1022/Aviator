@@ -219,105 +219,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803081601207_InitialCreate.cs" />
-    <Compile Include="Migrations\201803081601207_InitialCreate.Designer.cs">
-      <DependentUpon>201803081601207_InitialCreate.cs</DependentUpon>
+    <Compile Include="JsonResponse.ashx.cs">
+      <DependentUpon>JsonResponse.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803081620015_update FK name in billing.cs" />
-    <Compile Include="Migrations\201803081620015_update FK name in billing.Designer.cs">
-      <DependentUpon>201803081620015_update FK name in billing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803081623564_update FK name.cs" />
-    <Compile Include="Migrations\201803081623564_update FK name.Designer.cs">
-      <DependentUpon>201803081623564_update FK name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803081708431_update.cs" />
-    <Compile Include="Migrations\201803081708431_update.Designer.cs">
-      <DependentUpon>201803081708431_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803081735285_Spellingupdate.cs" />
-    <Compile Include="Migrations\201803081735285_Spellingupdate.Designer.cs">
-      <DependentUpon>201803081735285_Spellingupdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803082036354_addedSplitTimePilotId.cs" />
-    <Compile Include="Migrations\201803082036354_addedSplitTimePilotId.Designer.cs">
-      <DependentUpon>201803082036354_addedSplitTimePilotId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803082111543_update2.cs" />
-    <Compile Include="Migrations\201803082111543_update2.Designer.cs">
-      <DependentUpon>201803082111543_update2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803082121409_update3.cs" />
-    <Compile Include="Migrations\201803082121409_update3.Designer.cs">
-      <DependentUpon>201803082121409_update3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803082131090_update4.cs" />
-    <Compile Include="Migrations\201803082131090_update4.Designer.cs">
-      <DependentUpon>201803082131090_update4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803091424390_addEventCalendar.cs" />
-    <Compile Include="Migrations\201803091424390_addEventCalendar.Designer.cs">
-      <DependentUpon>201803091424390_addEventCalendar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803091444454_addEventCalendar1.cs" />
-    <Compile Include="Migrations\201803091444454_addEventCalendar1.Designer.cs">
-      <DependentUpon>201803091444454_addEventCalendar1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803091446460_addEventCalendar2.cs" />
-    <Compile Include="Migrations\201803091446460_addEventCalendar2.Designer.cs">
-      <DependentUpon>201803091446460_addEventCalendar2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803121235351_addedSplitPilotToViewModel.cs" />
-    <Compile Include="Migrations\201803121235351_addedSplitPilotToViewModel.Designer.cs">
-      <DependentUpon>201803121235351_addedSplitPilotToViewModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803121413034_splitpilotmadenullable.cs" />
-    <Compile Include="Migrations\201803121413034_splitpilotmadenullable.Designer.cs">
-      <DependentUpon>201803121413034_splitpilotmadenullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803121449213_flightIDFKupdate.cs" />
-    <Compile Include="Migrations\201803121449213_flightIDFKupdate.Designer.cs">
-      <DependentUpon>201803121449213_flightIDFKupdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803121524007_updatecalender.cs" />
-    <Compile Include="Migrations\201803121524007_updatecalender.Designer.cs">
-      <DependentUpon>201803121524007_updatecalender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803121644228_updatecalender1.cs" />
-    <Compile Include="Migrations\201803121644228_updatecalender1.Designer.cs">
-      <DependentUpon>201803121644228_updatecalender1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803131825141_editedPlane.cs" />
-    <Compile Include="Migrations\201803131825141_editedPlane.Designer.cs">
-      <DependentUpon>201803131825141_editedPlane.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803131832596_editedPlane2.cs" />
-    <Compile Include="Migrations\201803131832596_editedPlane2.Designer.cs">
-      <DependentUpon>201803131832596_editedPlane2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803141553376_editedCalenderModel.cs" />
-    <Compile Include="Migrations\201803141553376_editedCalenderModel.Designer.cs">
-      <DependentUpon>201803141553376_editedCalenderModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803141611166_editedCalenderModel1.cs" />
-    <Compile Include="Migrations\201803141611166_editedCalenderModel1.Designer.cs">
-      <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803151838062_addedinvoiceModel.cs" />
-    <Compile Include="Migrations\201803151838062_addedinvoiceModel.Designer.cs">
-      <DependentUpon>201803151838062_addedinvoiceModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803151851262_addedinvoiceModel1.cs" />
-    <Compile Include="Migrations\201803151851262_addedinvoiceModel1.Designer.cs">
-      <DependentUpon>201803151851262_addedinvoiceModel1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803151930279_addedinvoiceModel2.cs" />
-    <Compile Include="Migrations\201803151930279_addedinvoiceModel2.Designer.cs">
-      <DependentUpon>201803151930279_addedinvoiceModel2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803161340452_updatedFlight11.cs" />
-    <Compile Include="Migrations\201803161340452_updatedFlight11.Designer.cs">
-      <DependentUpon>201803161340452_updatedFlight11.cs</DependentUpon>
+    <Compile Include="Migrations\201803182019458_InitalCreate.cs" />
+    <Compile Include="Migrations\201803182019458_InitalCreate.Designer.cs">
+      <DependentUpon>201803182019458_InitalCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -329,6 +236,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PlaneStatsViewModel.cs" />
     <Compile Include="Models\PostFlight.cs" />
     <Compile Include="Models\PostFlightViewModel.cs" />
     <Compile Include="Models\PreFlight.cs" />
@@ -349,6 +257,7 @@
     <Content Include="Content\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar.print.min.css" />
     <Content Include="Content\jquery.timepicker.css" />
+    <Compile Include="Default.aspx.cs" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -360,6 +269,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\calendarscript.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_classic.css" />
@@ -570,6 +480,7 @@
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ro.html" />
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ru.html" />
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_sk.html" />
+    <Content Include="JsonResponse.ashx" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
@@ -660,6 +571,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.timepicker.js" />
     <Content Include="Scripts\jquery.timepicker.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -758,8 +671,13 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\qTip\jquery.qtip.css" />
+    <Content Include="Scripts\qTip\jquery.qtip.js" />
+    <Content Include="Scripts\qTip\jquery.qtip.min.css" />
+    <Content Include="Scripts\qTip\jquery.qtip.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\script-custom-calendar.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Content\IMG_5559 %281%29.jpg" />
     <Content Include="Web.config" />
@@ -832,18 +750,18 @@
     <Content Include="Views\Calendars\Delete.cshtml" />
     <Content Include="Views\Calendars\Details.cshtml" />
     <Content Include="Views\Calendars\Edit.cshtml" />
-    <Content Include="Views\Calendars\Index.cshtml" />
-    <Content Include="Views\Calendars\IndexTWO.cshtml" />
     <Content Include="Views\Flights\PreFlight.cshtml" />
-    <Content Include="Views\Calendars\MakeReservation.cshtml" />
     <Content Include="Views\Invoices\Create.cshtml" />
     <Content Include="Views\Invoices\Delete.cshtml" />
     <Content Include="Views\Invoices\Details.cshtml" />
     <Content Include="Views\Invoices\Edit.cshtml" />
     <Content Include="Views\Invoices\Index.cshtml" />
     <Content Include="Views\Invoices\SeeInvoice.cshtml" />
+    <Content Include="Views\Invoices\View.cshtml" />
+    <Content Include="Scripts\qTip\jquery.qtip.min.js.map" />
+    <Content Include="Views\Flights\ViewStats.cshtml" />
+    <Content Include="Views\Calendars\ViewIndex.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -851,81 +769,10 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803081601207_InitialCreate.resx">
-      <DependentUpon>201803081601207_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803081620015_update FK name in billing.resx">
-      <DependentUpon>201803081620015_update FK name in billing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803081623564_update FK name.resx">
-      <DependentUpon>201803081623564_update FK name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803081708431_update.resx">
-      <DependentUpon>201803081708431_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803081735285_Spellingupdate.resx">
-      <DependentUpon>201803081735285_Spellingupdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803082036354_addedSplitTimePilotId.resx">
-      <DependentUpon>201803082036354_addedSplitTimePilotId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803082111543_update2.resx">
-      <DependentUpon>201803082111543_update2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803082121409_update3.resx">
-      <DependentUpon>201803082121409_update3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803082131090_update4.resx">
-      <DependentUpon>201803082131090_update4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803091424390_addEventCalendar.resx">
-      <DependentUpon>201803091424390_addEventCalendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803091444454_addEventCalendar1.resx">
-      <DependentUpon>201803091444454_addEventCalendar1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803091446460_addEventCalendar2.resx">
-      <DependentUpon>201803091446460_addEventCalendar2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803121235351_addedSplitPilotToViewModel.resx">
-      <DependentUpon>201803121235351_addedSplitPilotToViewModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803121413034_splitpilotmadenullable.resx">
-      <DependentUpon>201803121413034_splitpilotmadenullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803121449213_flightIDFKupdate.resx">
-      <DependentUpon>201803121449213_flightIDFKupdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803121524007_updatecalender.resx">
-      <DependentUpon>201803121524007_updatecalender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803121644228_updatecalender1.resx">
-      <DependentUpon>201803121644228_updatecalender1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803131825141_editedPlane.resx">
-      <DependentUpon>201803131825141_editedPlane.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803131832596_editedPlane2.resx">
-      <DependentUpon>201803131832596_editedPlane2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803141553376_editedCalenderModel.resx">
-      <DependentUpon>201803141553376_editedCalenderModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803141611166_editedCalenderModel1.resx">
-      <DependentUpon>201803141611166_editedCalenderModel1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803151838062_addedinvoiceModel.resx">
-      <DependentUpon>201803151838062_addedinvoiceModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803151851262_addedinvoiceModel1.resx">
-      <DependentUpon>201803151851262_addedinvoiceModel1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803151930279_addedinvoiceModel2.resx">
-      <DependentUpon>201803151930279_addedinvoiceModel2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803161340452_updatedFlight11.resx">
-      <DependentUpon>201803161340452_updatedFlight11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803182019458_InitalCreate.resx">
+      <DependentUpon>201803182019458_InitalCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

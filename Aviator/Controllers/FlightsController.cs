@@ -37,7 +37,7 @@ namespace Aviator.Controllers
         // GET: Flights
         public ActionResult Index()
         {
-            var flights = db.Flights.Include(f => f.AircraftNumber);
+            var flights = db.Flights;
             return View(flights.ToList());
         }
 
@@ -82,20 +82,20 @@ namespace Aviator.Controllers
         }
 
         // GET: Flights/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Flight flight = db.Flights.Find(id);
-        //    if (flight == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftNumber);
-        //    return View(flight);
-        //}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Flight flight = db.Flights.Find(id);
+            if (flight == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.AircraftId = new SelectList(db.Planes, "PlaneId", "TailNumber", flight.AircraftNumber);
+            return View(flight);
+        }
 
         // POST: Flights/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -148,5 +148,13 @@ namespace Aviator.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult ViewStats()
+        {
+            PlaneStatsViewModel model = new PlaneStatsViewModel();
+            return View(model);
+        }
+
+
     }
 }

@@ -12,6 +12,16 @@
     <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
     <link href="Https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css" />
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+     @*Full Calendar 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.1/fullcalendar.print.css" media="print" />*@
+
+    @* Custom *@
+    @Styles.Render("~/Content/css/custom-style")
+  
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +41,8 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.IsInRole("Pilot") || User.IsInRole("MTech"))
                     {
-                        <li>@Html.ActionLink("Club Calendar", "Index", "Calendars")</li>
+                        <li>@Html.ActionLink("Club Calendar", "ViewIndex", "Calendars")</li>
+                        <li>@Html.ActionLink("My Plane", "ViewStats", "Flights")</li>
                     }
                     @if (User.IsInRole("Pilot"))
                     {
@@ -56,6 +67,13 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/fullcalendarjs")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <!-- qTip -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+
+
+    @Scripts.Render("~/bundles/Script-calendar")
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
