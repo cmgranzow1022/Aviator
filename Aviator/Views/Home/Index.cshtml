@@ -1,18 +1,28 @@
-﻿@{
+﻿@model Aviator.Models.Calendar
+
+@{
     ViewBag.Title = "Home Page";
 }
+<br />
 
-<div id="bg">
-    <img src="~/Content/IMG_5559 (1).jpg" alt="airplane" />
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Maintenance Due</h4>
+    <p>This week there is required maintenance for your plane. Please view club calendar for details.</p>
 </div>
+@*<div id="bg">
+    <img src="~/Content/Aviators.PNG" alt="airplane" />
+</div>*@
 
-<div class="jumbotron" >
+@*  *@
+
+
+<div class="jumbotron container" style="background-image: url(../../Content/Aviators.PNG)" >
     <h1>Aviator</h1>
     <p class="lead"></p>
-    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -32,4 +42,4 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@

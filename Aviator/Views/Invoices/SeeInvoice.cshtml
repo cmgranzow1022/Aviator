@@ -40,50 +40,44 @@
                         </div>
                     </div>
                 </div>
-                    <br />
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MonthlyDues, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-8">
+                            @Html.DisplayFor(m => m.MonthlyDues, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <br />
                     <div class="row">
                         <div class="form-group">
-                            @Html.LabelFor(m => m.MonthlyDues, new { @class = "col-md-3 control-label" })
-                            <div class="col-md-8">
-                                @Html.DisplayFor(m => m.MonthlyDues, new { @class = "form-control" })
+                            @Html.LabelFor(m => m.TotalAmountOwed, new { @class = "col-md-3 control-label" })
+                            <div class="col-md-9">
+                                <strong>
+                                @Html.DisplayFor(m => m.TotalAmountOwed, new { @class = "form-control" })
+                                    </strong>
                             </div>
                         </div>
                     </div>
-                        <br />
-                        <div class="row">
-                            <div class="form-group">
-                                @Html.LabelFor(m => m.TotalAmountOwed, new { @class = "col-md-3 control-label" })
-                                <div class="col-md-9">
-                                    <strong>
-                                    @Html.DisplayFor(m => m.TotalAmountOwed, new { @class = "form-control" })
-                                        </strong>
-                                </div>
-                            </div>
-                        </div>
-                            <br />
-                            <br />
-                            <br />
-                            @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Pay Now</a></p>*@
+                    <br />
+                    <br />
+                    <br />
 
-var total = @Html.Raw(Json.Encode(Model.TotalAmountOwed));
+                    var total = @Html.Raw(Json.Encode(Model.TotalAmountOwed));
 
-    
- 
-
-
-
-    <form action="/Payment/Charge" method="POST">
-        <article>
-            <label>Amount: $@total</label>
-        </article>
-        <script src="//checkout.stripe.com/v2/checkout.js"
-                class="stripe-button"
-                data-key="@ViewBag.StripePublishKey"
-                data-locale="auto"
-                data-description="Sample Charge"
-                data-amount="1500">
-        </script>
-    </form>
+                        <form action="/Payment/Charge" method="POST">
+                            <article>
+                                <label>Amount: $@total</label>
+                            </article>
+                            <script src="//checkout.stripe.com/v2/checkout.js"
+                                    class="stripe-button"
+                                    data-key="@ViewBag.StripePublishKey"
+                                    data-locale="auto"
+                                    data-description="Sample Charge"
+                                    data-amount="1500">
+                            </script>
+                        </form>
 
 
 }
