@@ -40,14 +40,23 @@ namespace Aviator.Controllers
                 totalHoursFlown = PostF - PreF;
                 GrandTotal += totalHoursFlown;
             }
+
             NewInvoice.HoursFlown = GrandTotal;
             NewInvoice.HourlyFlightRate = 75.00;
             NewInvoice.HoursBilled = GrandTotal * NewInvoice.HourlyFlightRate;
             NewInvoice.MonthlyDues = 130.00;
             NewInvoice.TotalAmountOwed = NewInvoice.MonthlyDues + NewInvoice.HoursBilled;
-            var stripePublishKey = ConfigurationManager.AppSettings["PUBLICKEYHERE"];
+            var stripePublishKey = "PUBLICKEYHERE";
+
             ViewBag.StripePublishKey = stripePublishKey;
             return View(NewInvoice);
+        }
+
+
+        [HttpPost]
+        public ActionResult SeeInvoice(Invoice invoice)
+        {
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Charge(string stripeEmail, string stripeToken)
@@ -69,9 +78,10 @@ namespace Aviator.Controllers
                 CustomerId = customer.Id
             });
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
+       
 
 
         // GET: Invoices

@@ -12,6 +12,7 @@ namespace Aviator.Models
         [Key]
         public int MemberId { get; set; }
         [Required]
+        [Display(Name = "Role")]
         public string MemberRole { get; set; }
         [Required]
         [Display(Name = "First Name")]

@@ -92,12 +92,18 @@
     <div class="form-group">
         @Html.LabelFor(m => m.StartingOilLevel, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.StartingOilLevel, preListItems, "--------------Select oil level--------------", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.StartingOilLevel, preListItems, new { @class = "form-control" })
         </div>
     </div>
 
 
     List<SelectListItem> addingOilList = new List<SelectListItem>();
+
+    addingOilList.Add(new SelectListItem
+    {
+        Text = "0.0",
+        Value = "0.0"
+    });
     addingOilList.Add(new SelectListItem
     {
         Text = "0.5",
@@ -132,7 +138,7 @@
             @Html.RadioButtonFor(m => m.MaintenanceFlight, true,  new { @Id = "Yes" })
             <label for="Yes">Yes</label>
             @Html.RadioButtonFor(m => m.MaintenanceFlight, false, new { @Id = "No" })
-            <label for="Id">No</label>
+            <label for="No">No</label>
 
         </div>
     </div>

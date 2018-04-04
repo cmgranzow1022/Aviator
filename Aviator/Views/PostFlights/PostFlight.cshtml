@@ -16,7 +16,6 @@
             @Html.TextBoxFor(m => m.postModel.EndingEngineHours, new { @class = "form-control" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(m => m.postModel.EndingHobbsHours, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -30,17 +29,23 @@
             @Html.TextBoxFor(m => m.postModel.Squawks, new { @class = "form-control" })
         </div>
     </div>
-
-
-
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.postModel.SplitTime, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.postModel.SplitTime, true, new { @Id = "Yes" })
+            <label for="Yes">Yes</label>
+            @Html.RadioButtonFor(m => m.postModel.SplitTime, false, new { @Id = "No" })
+            <label for="No">No</label>
+        </div>
+    </div>
+    <br />
     <div class="form-group">
         @Html.LabelFor(m => m.postModel.SplitTimePilotId, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.postModel.SplitTimePilotId, Model.AvailablePilots, "Select Pilot", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.postModel.SplitTimePilotId, Model.AvailablePilots, " ----- Select Pilot -----", new { @class = "form-control" })
         </div>
     </div>
-
-
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

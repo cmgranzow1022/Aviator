@@ -43,7 +43,6 @@ namespace Aviator.Controllers
                     postViewModel.AvailablePilots.Add(item);
                }
             }
-        
             return View(postViewModel);
         }
 

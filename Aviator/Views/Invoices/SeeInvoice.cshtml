@@ -64,7 +64,8 @@
                     <br />
                     <br />
 
-                    var total = @Html.Raw(Json.Encode(Model.TotalAmountOwed));
+    var total = @Html.Raw(Json.Encode(Model.TotalAmountOwed));
+    var totalInCents = @Html.Raw(Json.Encode(Model.TotalAmountOwed * 100));
 
                         <form action="/Payment/Charge" method="POST">
                             <article>
@@ -75,7 +76,7 @@
                                     data-key="@ViewBag.StripePublishKey"
                                     data-locale="auto"
                                     data-description="Sample Charge"
-                                    data-amount="1500">
+                                    data-amount=@totalInCents>
                             </script>
                         </form>
 
